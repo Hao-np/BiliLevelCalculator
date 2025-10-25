@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Bili等级计算器</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.4.0/css/all.min.css">
+    <!--适配iPhone添加标签-->
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon.png">
+    <meta name="apple-mobile-web-app-title" content="Bili等级计算器">
+
+</head>
+
+<body>
+    <h1>Bili等级计算器</h1>
+
+    <div class="card">
+        <!-- 每日任务 -->
+        <div class="section">
+            <div class="section-title">每日任务</div>
+            <div class="list">
+                <div class="item">
+                    <label><input type="checkbox" id="doLogin" checked><span>登录+5</span></label>
+                </div>
+                <div class="item">
+                    <label><input type="checkbox" id="doWatch" checked><span>观看+5</span></label>
+                </div>
+                <div class="item">
+                    <label><input type="checkbox" id="doShare" checked><span>分享+5</span></label>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="card" style="margin-top: 15px">
+        <div class="section">
+            <div class="section-title">大会员</div>
+            <div class="item">
+                <label><input type="checkbox" id="doVip"><span>大会员领取+10</span></label>
+            </div>
+            <label style="font-size:14px;color:var(--sub);margin-top:12px;display:block">大会员剩余天数</label>
+            <input class="inp" id="vipLeft" type="number" min="0" value="0">
+        </div>
+    </div>
+
+    <div class="card" style="margin: 15px;">
+        <!-- 基础数据 -->
+        <div class="section">
+            <div class="section-title">基础数据</div>
+            <label style="font-size:14px;color:var(--sub)">当前经验值</label>
+            <input class="inp" id="expNow" type="number" min="0" value="200">
+            <label style="font-size:14px;color:var(--sub);margin-top:12px;display:block">持有硬币（如硬币不足以支撑，默认后面投币1枚）</label>
+            <input class="inp" id="coinNow" type="number" min="0" value="0">
+            <label style="font-size:14px;color:var(--sub);margin-top:12px;display:block">每日投币</label>
+            <select class="inp" id="coinPerDay">
+                <option value="0" selected>0 枚</option>
+                <option value="1">1 枚</option>
+                <option value="2">2 枚</option>
+                <option value="3">3 枚</option>
+                <option value="4">4 枚</option>
+                <option value="5">5 枚</option>
+            </select>
+
+            <label style="font-size:14px;color:var(--sub);margin-top:12px;display:block">目标等级</label>
+            <select class="inp" id="targetLv">
+                <option value="1">Lv1</option>
+                <option value="2">Lv2</option>
+                <option value="3">Lv3</option>
+                <option value="4">Lv4</option>
+                <option value="5">Lv5</option>
+                <option value="6" selected>Lv6</option>
+            </select>
+        </div>
+    </div>
+
+    <button class="btn" onclick="calc()">计算所需天数</button>
+
+    <div class="card" style="margin: 15px;">
+        <!-- 结果 -->
+        <div id="output" class="section result" style="display:none">
+            <h3 id="resTitle"></h3>
+            <div id="resCoin"></div>
+            <div id="resBody"></div>
+            <div class="bar">
+                <div id="bar"></div>
+            </div>
+        </div>
+    </div>
+
+<footer>
+    <div class="footer-info">
+        <p class="footer-copyright">Copyright © 2025 <a href="https://haonp.top" style="text-decoration: none;color: #007aff;">Hao.</a></p>
+    </div>
+    <div class="footer-links">
+        <a class="footer-link" id="timer">
+            <i class="fa-regular fa-clock" style="color: var(--text-primary)"></i>
+            <div>
+                <span id="days">0</span>天
+                <span id="hours">0</span>时
+                <span id="minutes">0</span>分
+                <span id="seconds">0</span>秒
+            </div>
+        </a>
+        <a href="https://icp.gov.moe/?keyword=20255055" target="_blank" class="footer-link">
+            <img src="https://icp.gov.moe/images/ico64.png">
+            萌ICP备20255055号
+        </a>
+        <a href="https://github.com/Hao-np/myhome.github.io" target="_blank" class="footer-link">
+            <i class="fa-brands fa-github" style="color: var(--text-primary)"></i>
+            <span>GitHub 提供搭建支持</span>
+        </a>
+    </div>
+</footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
